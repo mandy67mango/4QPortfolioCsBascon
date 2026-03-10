@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      padding: 20px;
+    }
+     .container {
+      max-width: 20vw;
+      margin: auto;
+      padding: 20px 30px;
+      border-radius: 10px;
+    }
+      h1 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    </style>
   </head>
   <body>
-      <h1 class="title">Add a Movie</h1>
+    <div class="container">
+      <h1>Add a Movie</h1>
       <form id="movieForm">
-        <legend>Title:<br>
-        <input type="text" id="bookTitle" /></legend><br>
-        <legend>Year:<br>
-        <input type="text" id="bookYear" /></legend><br>
-        <legend>Genre:<br>
+        <label>Title:<br>
+        <input type="text" id="bookTitle" /></label><br>
+        <label>Year:<br>
+        <input type="text" id="bookYear" /></label><br>
+        <label>Genre:<br></label>
          <select id="genre">
       <option value="Action">Action</option>
       <option value="Comedy">Comedy</option>
@@ -19,6 +40,7 @@
         <button> Submit </button>
       </form>
       <br/>
+      </div>
       
       <span>Searh for : </span><input type="text" id="searchTitle" placeholder="Enter a Title" /> 
       <button onclick="search()"> Display </button>
