@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <h1>Add a Movie</h1>
+  </head>
+  <body>
+      
+      <form id="movieForm">
+        <legend>Title:<br>
+        <input type="text" id="bookTitle" /></legend><br>
+        <legend>Year:<br>
+        <input type="text" id="bookYear" /></legend><br>
+        <legend>Genre:<br>
+         <select id="genre">
+      <option value="Action">Action</option>
+      <option value="Comedy">Comedy</option>
+      <option value="Drama">Drama</option>
+      <option value="Sci-Fi">Sci-Fi</option>
+      </select><br><br><br>
+        <button> Submit </button>
+      </form>
+      <br/>
+      
+      <span>Searh for : </span><input type="text" id="searchTitle" placeholder="Enter a Title" /> 
+      <button onclick="search()"> Display </button>
+      <div id="listBooks"> </div>
+      
+      <script src="script.js"></script>
+  </body>
+</html>
