@@ -47,14 +47,12 @@
           <option value="Fiction">Fiction</option>
           <option value="Horror">Horror</option>
         </select><br><br>
-        <div class="space">
           <label>Star Rating</label>
           <span onclick="gfg(1)" class="star">&#9733;</span>
           <span onclick="gfg(2)" class="star">&#9733;</span>
           <span onclick="gfg(3)" class="star">&#9733;</span>
           <span onclick="gfg(4)" class="star">&#9733;</span>
           <span onclick="gfg(5)" class="star">&#9733;</span>
-        </div>
         <br>
         <button type="submit"> Add Movie </button>
       </form>
@@ -112,13 +110,18 @@ function show() {
     let muhammad = "";
     for (let i = 0; i < list.length; i++) {
         let m = list[i];
-        muhammad += `${m.t} (${m.y}) - ${m.g}, Rating: 
-            <span class="one">${"★".repeat(parseInt(m.r))}</span>
-        </p>`;
+        muhammad += `<p>${m.t} (${m.y}) - ${m.g}, Rating: <span class="one">${"★".repeat(parseInt(m.r))}</span><button type="button" onclick="bomb(${i})" style="width:auto; margin-left:10px;">Delete</button></p>`;
     }
-    document.getElementById("bruhmoments").innerHTML = muhammad; 
+    document.getElementById("bruhmoments").innerHTML = muhammad;
 }
-
+function bomb(index) {
+    if (confirm("Are you sure you want to delete?")) {
+        let list = JSON.parse(localStorage.getItem("movies")) || [];
+        list.splice(index, 1); 
+        localStorage.setItem("movies", JSON.stringify(list));
+        show();
+    }
+}
 show();
       </script>
   </body>
