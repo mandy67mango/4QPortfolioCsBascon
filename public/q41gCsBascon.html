@@ -7,14 +7,14 @@
       margin: 0;
       padding: 20px;
     }
-     .container {
+    .container {
       max-width: 50vw;
       margin: auto;
       padding: 20px 30px;
       border-radius: 10px;
       border-style: ridge;
     }
-      h1 {
+    h1, h2 {
       text-align: center;
     }
     label {
@@ -36,53 +36,90 @@
       <h1>Add a Movie</h1>
       <form id="movieForm">
         <label>Title:<br>
-        <input type="text" id="bookTitle" /></label><br>
+        <input type="text" id="bookTitle" required /></label><br>
         <label>Year:<br>
-        <input type="text" id="bookYear" /></label><br>
+        <input type="text" id="bookYear" required /></label><br>
         <label>Genre:<br></label>
-         <select id="genre">
-      <option value="Action">Action</option>
-      <option value="Comedy">Comedy</option>
-      <option value="Drama">Fantasy</option>
-      <option value="Drama">Fiction</option>
-      <option value="Drama">Horror</option>
-      </select><br><br><br>
-      <div class="space">
-        <label>Star Rating</label>
-        <span onclick="gfg(1)" class="star">&#9733;</span>
-        <span onclick="gfg(2)" class="star">&#9733;</span>
-        <span onclick="gfg(3)" class="star">&#9733;</span>
-        <span onclick="gfg(4)" class="star">&#9733;</span>
-        <span onclick="gfg(5)" class="star">&#9733;</span>
-    </div>
-        <button> Submit </button>
+        <select id="genre">
+          <option value="Action">Action</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Horror">Horror</option>
+        </select><br><br>
+        <div class="space">
+          <label>Star Rating</label>
+          <span onclick="gfg(1)" class="star">&#9733;</span>
+          <span onclick="gfg(2)" class="star">&#9733;</span>
+          <span onclick="gfg(3)" class="star">&#9733;</span>
+          <span onclick="gfg(4)" class="star">&#9733;</span>
+          <span onclick="gfg(5)" class="star">&#9733;</span>
+        </div>
+        <br>
+        <button type="submit"> Add Movie </button>
       </form>
       <br/>
-      </div>
+      <h2>Movie List</h2>
+      <div id="bruhmoments"></div>
+    </div>
       
-      
-      <script>
-        let stars = 
-    document.getElementsByClassName("star");
-    function gfg(n) {
-    remove();
-    for (let i = 0; i < n; i++) {
-        if (n == 1) cls = "one";
-        else if (n == 2) cls = "two";
-        else if (n == 3) cls = "three";
-        else if (n == 4) cls = "four";
-        else if (n == 5) cls = "five";
-        stars[i].className = "star " + cls;
-    }
-    }
-
-function remove() {
-    let i = 0;
-    while (i < 5) {
-        stars[i].className = "star";
-        i++;
-    }
+     <script>
+        let stars = document.getElementsByClassName("star");
+let currentRating = 0;
+function gfg(n) {
+  currentRating = n;
+  remove();
+  for (let i = 0; i < n; i++) {
+    let cls = ["one", "two", "three", "four", "five"][n - 1];
+    stars[i].className = "star " + cls;
+  }
 }
+function remove() {
+  for (let i = 0; i < 5; i++) stars[i].className = "star";
+}
+document.getElementById("movieForm").onsubmit = (e) => {
+    e.preventDefault();
+    let t = document.getElementById("bookTitle").value;
+    let y = document.getElementById("bookYear").value;
+    let list = JSON.parse(localStorage.getItem("movies")) || [];
+    let hatdog = null;
+    for (let i = 0; i < list.length; i++) {
+        if (list[i].t === t && list[i].y === y) {
+            hatdog = list[i];
+            break; 
+        }
+    }
+    if (hatdog) {
+        let totalStars = Number(hatdog.r) * hatdog.c; 
+        hatdog.c += 1;
+        hatdog.r = (totalStars + currentRating) / hatdog.c; 
+    } else {
+        list.push({
+            t: t,
+            y: y,
+            g: document.getElementById("genre").value,
+            r: currentRating,
+            c: 1 
+        });
+    }
+    localStorage.setItem("movies", JSON.stringify(list));
+    document.getElementById("movieForm").reset();
+    gfg(0);
+    show();
+};
+function show() {
+    let list = JSON.parse(localStorage.getItem("movies")) || [];
+    let muhammad = "";
+    for (let i = 0; i < list.length; i++) {
+        let m = list[i];
+        muhammad += `${m.t} (${m.y}) - ${m.g}, Rating: 
+            <span class="one">${"★".repeat(parseInt(m.r))}</span>
+        </p>`;
+    }
+    document.getElementById("bruhmoments").innerHTML = muhammad; 
+}
+
+show();
       </script>
   </body>
 </html>
