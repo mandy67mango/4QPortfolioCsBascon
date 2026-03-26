@@ -56,6 +56,7 @@
 - Add in css ```position: relative; top: 20px; left: 20px;``` to .sidebar.
 
 - Guided Question: What changed compared to the default static positioning? Try to give different values to top and left or you can change it to bottom, right.
+- Ans: So when I added top, left values, it followed the 20px to create a distance on its top and left. Same goes if you use bottom and right, it will put some distance on its right and bottom, moving it to the left and upwards.
 
 ### Step 2 (Fixed):
 
