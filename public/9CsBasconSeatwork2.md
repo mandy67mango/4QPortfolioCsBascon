@@ -56,18 +56,21 @@
 - Add in css ```position: relative; top: 20px; left: 20px;``` to .sidebar.
 
 - Guided Question: What changed compared to the default static positioning? Try to give different values to top and left or you can change it to bottom, right.
+- Ans: So when I added top, left values, it followed the 20px to create a distance on its top and left. Same goes if you use bottom and right, it will put some distance on its right and bottom, moving it to the left and upwards.
 
 ### Step 2 (Fixed):
 
 - Add in css ```position: fixed; bottom: 0; width: 100%;``` to .footer.
 
 - Guided Question: What happens when you scroll the page? Why does the footer behave differently from position relative?
+- Ans: when I try to scroll, it doesn't budge. It is beacsue the postiion of the footer is fixed, meaning that it won't be disturbed and will just stay still.
 
 ### Step 3 (Absolute):
 
 - Add in css ```position: absolute; top: 66px; left: 200px;``` to .content.
 
 - Guided Question: What is the effect of position: absolute on an element? How is it different from fixed?
+- Ans: So with the use of absolute position, it moved to the side of its nearest ancestor, which is the sidebar and aligned with it. It is different from fixed because fixed is used to position it to the viewport/screen which is glued/stays in place.
 
 ### Step 4 : (Absolute)
 
@@ -87,9 +90,11 @@
 - Give .content a z-index: 1.
 
 - Guided Question: Why does the notice appear on top of the content? What happens if you swap the z‑index values?
+- Ans: THe notice appear on top of the content because of its z-index. If I made the z-index higher, it will appear on top of a certain element when its z-value is higher than of the element. WHen I made it -1, it appeared on the back of the content, meaning that lower z-index goes behind the higher ones.
 
 - Challenge: 
     * What changes that you have to do on the code that will position .notice box on the top right corner of the .content box? Please write the code on paper as well (both html and css on the part of .notice and .content).
+      -I just chnaged the left value to 430px.
     * Try to change the position of .content to relative then to fixed. What do you observed each time?
     * What do you observe on about the effect of z-index on .notice and .content boxes?
 
