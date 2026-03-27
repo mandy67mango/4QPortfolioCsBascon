@@ -15,7 +15,7 @@
     - Please do the following tasks that will ask you to reposition HTML elements then answer the guided question for each task on the .md file. Commit changes to the .md file and to the .html file as well.
     **- This seatwork is worth 20pts and should be submitted by the end of the period** The link to [KHub submission bin](https://khub.mc.pshs.edu.ph/mod/assign/view.php?id=15481).
       - Submit the links to your .md file and .html file.
-
+ 
 ```html
 <!DOCTYPE html>
 <html>
