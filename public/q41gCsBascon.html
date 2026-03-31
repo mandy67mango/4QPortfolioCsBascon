@@ -68,8 +68,8 @@ function gfg(n) {
   currentRating = n;
   remove();
   for (let i = 0; i < n; i++) {
-    let cls = ["one", "two", "three", "four", "five"][n - 1];
-    stars[i].className = "star " + cls;
+    let imiss = ["one", "two", "three", "four", "five"][n - 1];
+    stars[i].className = "star " + imiss;
   }
 }
 function remove() {
