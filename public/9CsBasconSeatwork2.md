@@ -94,16 +94,37 @@
 
 - Challenge: 
     * What changes that you have to do on the code that will position .notice box on the top right corner of the .content box? Please write the code on paper as well (both html and css on the part of .notice and .content).
-      -I just chnaged the left value to 430px.
+      -I just changed the left value of .notice to 430px to align it to the content box (by editing and adjusting until it satisfies the rightmost upper placement).
+      .content {
+      background: lightyellow;
+      width: 300px;
+      height: 200px;
+      position: absolute; top: 66px; left: 200px;
+    }    
+ .notice {
+    position: absolute;
+    top: 60px;
+    left: 430px;
+    background: orange;
+    padding: 10px;
+    z-index: 1;
+}
     * Try to change the position of .content to relative then to fixed. What do you observed each time?
+    * Ans: When I changed it to relative, the content box went down, exactly 66px down the sidebar and 200px from the left of sidebar. When I changed it to fixed, it looks similar when it was absolute, but since it is fxed, if you were to scroll, the content box would stay at its place.
     * What do you observe on about the effect of z-index on .notice and .content boxes?
+    * Ans: So if the z-index of the main content is higher than of the notice, it will appear at the front, hiding the notice box. Making the notice box z-index higher than of the content would make it appear on top of the content box.
 
 3. Please answer the following reflection questions (15 minutes)
 
-    a. Could you summarize the differences between the CSS position values (static, relative, absolute, fixed)? 
+    a. Could you summarize the differences between the CSS position values (static, relative, absolute, fixed)?
+   -Ans: WHen using static, the elements follow the original order of the page, whereas you cannt move them with any margin or direction properties. Relative is similar to static, ut you can use top, bottom, left, right values to move its position, while doing this, other elements are not to move to fill in the empty space it left from. When using absolute, the element is positioned relative/according to its nearest positioned ancestor. Using fixed however makes the element stay still, attached to the screen, so it stays on the same spot even if you scrolled.
 
     b. How does absolute positioning depend on its parent element?
+   -Ans: When using absolute, it depends on its parent element and will align its top, bottom ,left, right values relative to the edges of the nearby parent element.
 
     c. How do you differentiate sticky from fixed (you can research on sticky)?
+   -Ans: When using fixed, the element is pinned to the viewport, it stays in the same spot even if you scrolled. Sticky is used where the element if placed inside a parent container, when the container is scrolled, it also scrolls off with the parent.
 
     d. If you were designing a webpage for a school event, how might you use positioning to highlight important information? Please give concrete examples.
+   -Ans: If there were a QR code for credits or contact details to join the event, we could use fixed position to make it stay at the bottom corner. We could also use fixed for the main theme of the event, positioned on top of the page so that it will remain there and kinda makes it appealing. 
+   
